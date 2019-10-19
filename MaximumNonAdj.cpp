@@ -14,8 +14,10 @@ long MaximumNonAdj(std::vector<int> arr) {
 
 	F[1] = arr[1];
 
-	for (int i = 2; i < arr.size(); i ++) 
+	for (int i = 2; i < arr.size(); i ++) {
 		F[i] = max(F[i - 2] + arr[i], F[i - 1]);
+		F[i] = max(F[i], arr[i]);
+	}
 	return F[arr.size() - 1];
 
 	
